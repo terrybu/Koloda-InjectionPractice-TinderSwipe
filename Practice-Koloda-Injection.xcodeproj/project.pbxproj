@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		D962A0D61BD72F4300DFE2B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D962A0D51BD72F4300DFE2B2 /* AppDelegate.swift */; };
-		D962A0D81BD72F4300DFE2B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D962A0D71BD72F4300DFE2B2 /* ViewController.swift */; };
+		D962A0D81BD72F4300DFE2B2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D962A0D71BD72F4300DFE2B2 /* MainViewController.swift */; };
 		D962A0DB1BD72F4300DFE2B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D962A0D91BD72F4300DFE2B2 /* Main.storyboard */; };
 		D962A0DD1BD72F4300DFE2B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D962A0DC1BD72F4300DFE2B2 /* Assets.xcassets */; };
 		D962A0E01BD72F4300DFE2B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D962A0DE1BD72F4300DFE2B2 /* LaunchScreen.storyboard */; };
 		D9AD8B7B1BD7390D00794A69 /* CustomOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AD8B7A1BD7390D00794A69 /* CustomOverlayView.swift */; settings = {ASSET_TAGS = (); }; };
 		D9AD8B7D1BD7395D00794A69 /* CustomOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9AD8B7C1BD7395D00794A69 /* CustomOverlayView.xib */; settings = {ASSET_TAGS = (); }; };
+		D9AD8B7F1BD73C4400794A69 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AD8B7E1BD73C4400794A69 /* ModalViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		E086775D6A64E3A3EDDF2505 /* Pods_Practice_Koloda_Injection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC7F768E6C68F5A6534FE50 /* Pods_Practice_Koloda_Injection.framework */; };
 /* End PBXBuildFile section */
 
@@ -21,13 +22,14 @@
 		3FC7F768E6C68F5A6534FE50 /* Pods_Practice_Koloda_Injection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Practice_Koloda_Injection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D962A0D21BD72F4300DFE2B2 /* Practice-Koloda-Injection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Practice-Koloda-Injection.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D962A0D51BD72F4300DFE2B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D962A0D71BD72F4300DFE2B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D962A0D71BD72F4300DFE2B2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D962A0DA1BD72F4300DFE2B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D962A0DC1BD72F4300DFE2B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D962A0DF1BD72F4300DFE2B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D962A0E11BD72F4300DFE2B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9AD8B7A1BD7390D00794A69 /* CustomOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOverlayView.swift; sourceTree = "<group>"; };
 		D9AD8B7C1BD7395D00794A69 /* CustomOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomOverlayView.xib; sourceTree = "<group>"; };
+		D9AD8B7E1BD73C4400794A69 /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		EE3BDEB3F2ED0B3C69620AF1 /* Pods-Practice-Koloda-Injection.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Practice-Koloda-Injection.release.xcconfig"; path = "Pods/Target Support Files/Pods-Practice-Koloda-Injection/Pods-Practice-Koloda-Injection.release.xcconfig"; sourceTree = "<group>"; };
 		F3C9F2E3A3284E4874A14614 /* Pods-Practice-Koloda-Injection.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Practice-Koloda-Injection.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Practice-Koloda-Injection/Pods-Practice-Koloda-Injection.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,7 +77,8 @@
 			isa = PBXGroup;
 			children = (
 				D962A0D51BD72F4300DFE2B2 /* AppDelegate.swift */,
-				D962A0D71BD72F4300DFE2B2 /* ViewController.swift */,
+				D962A0D71BD72F4300DFE2B2 /* MainViewController.swift */,
+				D9AD8B7E1BD73C4400794A69 /* ModalViewController.swift */,
 				D962A0D91BD72F4300DFE2B2 /* Main.storyboard */,
 				D9AD8B7A1BD7390D00794A69 /* CustomOverlayView.swift */,
 				D9AD8B7C1BD7395D00794A69 /* CustomOverlayView.xib */,
@@ -216,7 +219,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D962A0D81BD72F4300DFE2B2 /* ViewController.swift in Sources */,
+				D9AD8B7F1BD73C4400794A69 /* ModalViewController.swift in Sources */,
+				D962A0D81BD72F4300DFE2B2 /* MainViewController.swift in Sources */,
 				D962A0D61BD72F4300DFE2B2 /* AppDelegate.swift in Sources */,
 				D9AD8B7B1BD7390D00794A69 /* CustomOverlayView.swift in Sources */,
 			);

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  Practice-Koloda-Injection
 //
 //  Created by Terry Bu on 10/20/15.
@@ -12,9 +12,11 @@ import pop
 
 private var numberOfCards: UInt = 5
 
-class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate  {
+class MainViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate  {
 
     @IBOutlet weak var kolodaView: KolodaView!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,19 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         kolodaView.delegate = self
         
         
+    }
+    
+    //MARK: IBActions
+    @IBAction func leftButtonTapped() {
+        kolodaView?.swipe(SwipeResultDirection.Left)
+    }
+    
+    @IBAction func rightButtonTapped() {
+        kolodaView?.swipe(SwipeResultDirection.Right)
+    }
+    
+    @IBAction func undoButtonTapped() {
+        kolodaView?.revertAction()
     }
     
     //MARK: KolodaViewDataSource
@@ -57,6 +72,9 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     
     func kolodaDidSelectCardAtIndex(koloda: KolodaView, index: UInt) {
         print("card tapped at index \(index)")
+        
+        let modalVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ModalVC")
+        presentViewController(modalVC, animated: true, completion: nil)
     }
     
     func kolodaShouldApplyAppearAnimation(koloda: KolodaView) -> Bool {
