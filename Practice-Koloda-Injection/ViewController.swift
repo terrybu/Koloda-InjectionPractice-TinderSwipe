@@ -36,7 +36,8 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     }
     
     func kolodaViewForCardOverlayAtIndex(koloda: KolodaView, index: UInt) -> OverlayView? {
-        return nil
+        return NSBundle.mainBundle().loadNibNamed("CustomOverlayView",
+            owner: self, options: nil)[0] as? CustomOverlayView
     }
     
     //MARK: KolodaViewDelegate
@@ -55,7 +56,7 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     }
     
     func kolodaDidSelectCardAtIndex(koloda: KolodaView, index: UInt) {
-        print("card tapped")
+        print("card tapped at index \(index)")
     }
     
     func kolodaShouldApplyAppearAnimation(koloda: KolodaView) -> Bool {
