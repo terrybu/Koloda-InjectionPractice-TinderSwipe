@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SLV-PA-JZO">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--Sample Title-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Practice_Koloda_Injection" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XVJ-HW-Ygh" customClass="KolodaView" customModule="Koloda">
-                                <rect key="frame" x="0.0" y="120" width="600" height="300"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XVJ-HW-Ygh" customClass="KolodaView" customModule="Koloda">
+                                <rect key="frame" x="50" y="120" width="500" height="300"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -41,7 +41,7 @@
                                     <action selector="undoButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rn0-Y4-m38"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qx9-Qs-YOk">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qx9-Qs-YOk">
                                 <rect key="frame" x="180" y="440" width="240" height="64"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cw4-7f-lGU" userLabel="DislikeButton">
@@ -84,10 +84,10 @@
                             <constraint firstItem="qx9-Qs-YOk" firstAttribute="top" secondItem="XVJ-HW-Ygh" secondAttribute="bottom" constant="20" id="Qb5-dp-lG6"/>
                             <constraint firstItem="hqm-P5-00E" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="R9i-6w-xii"/>
                             <constraint firstItem="qx9-Qs-YOk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hca-HG-5is"/>
-                            <constraint firstItem="XVJ-HW-Ygh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="hkY-UU-WXM"/>
+                            <constraint firstItem="XVJ-HW-Ygh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="50" id="hkY-UU-WXM"/>
                             <constraint firstItem="hqm-P5-00E" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="kCs-Ow-cot"/>
                             <constraint firstItem="XVJ-HW-Ygh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="lmN-q8-c8c"/>
-                            <constraint firstAttribute="trailing" secondItem="XVJ-HW-Ygh" secondAttribute="trailing" id="xvv-t8-Wo9"/>
+                            <constraint firstAttribute="trailing" secondItem="XVJ-HW-Ygh" secondAttribute="trailing" constant="50" id="xvv-t8-Wo9"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -95,12 +95,14 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Sample Title" id="i69-w3-EHL"/>
                     <connections>
                         <outlet property="kolodaView" destination="XVJ-HW-Ygh" id="Aft-AD-Gid"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1078" y="-450"/>
         </scene>
         <!--Modal View Controller-->
         <scene sceneID="sAt-NO-cUn">
@@ -133,7 +135,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X6E-sp-5Mj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="966" y="349"/>
+            <point key="canvasLocation" x="2070" y="-159"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="a76-zd-nMw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SLV-PA-JZO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ye3-Nc-0wl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="EUP-6a-ZZO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fgd-Th-rRl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="311" y="-450"/>
         </scene>
     </scenes>
     <resources>
