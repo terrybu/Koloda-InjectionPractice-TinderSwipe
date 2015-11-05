@@ -15,7 +15,7 @@ private var numberOfCards: UInt = 5
 class MainViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate  {
 
     @IBOutlet weak var kolodaView: KolodaView!
-    
+    var imageNamesArray: [String] = ["pestoPasta", "burger", "wineTasting", "dragonRoll", "billGates", "jdFace"]
     
     
     override func viewDidLoad() {
@@ -24,8 +24,6 @@ class MainViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
         
         kolodaView.dataSource = self
         kolodaView.delegate = self
-        
-        
     }
     
     //MARK: IBActions
@@ -47,7 +45,11 @@ class MainViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
     }
     
     func kolodaViewForCardAtIndex(koloda: KolodaView, index: UInt) -> UIView {
-        return UIImageView(image: UIImage(named: "billGates"))
+        if Int(index) <= imageNamesArray.count {
+            return UIImageView(image: UIImage(named: imageNamesArray[Int(index)]))
+        } else {
+            return UIImageView(image: UIImage(named: "dragonRoll"))
+        }
     }
     
     func kolodaViewForCardOverlayAtIndex(koloda: KolodaView, index: UInt) -> OverlayView? {
