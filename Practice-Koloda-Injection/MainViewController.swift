@@ -20,13 +20,33 @@ class MainViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
     var expandedClick: Bool = false
     var originalFrame: CGRect?
     var originalCardFrame: CGRect?
-
+    var bottomUpView: UIView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         kolodaView.dataSource = self
         kolodaView.delegate = self
+        
+        bottomUpView = UIView(frame:CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height-self.kolodaView.frame.height))
+        bottomUpView!.frame = CGRectOffset(bottomUpView!.frame, 0, view.frame.height)
+        bottomUpView!.backgroundColor = UIColor.lightGrayColor()
+        
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 20))
+        label.text = "test test test test test"
+        let button = UIButton(type: UIButtonType.Custom)
+        button.frame = CGRect(x: 0, y: 100, width: 100, height: 30)
+        button.setTitle("BUTTON TEST", forState: UIControlState.Normal)
+        
+        bottomUpView?.addSubview(label)
+        bottomUpView?.addSubview(button)
+        
+        let imageView = UIImageView(image: UIImage(named:"locationIcon"))
+        imageView.frame = CGRectMake(0, 200, 50,50)
+        bottomUpView?.addSubview(imageView)
+        
+        view.addSubview(bottomUpView!)
     }
     
     //MARK: IBActions
@@ -80,23 +100,27 @@ class MainViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
 //        
 //        let modalVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ModalVC")
 //        presentViewController(modalVC, animated: true, completion: nil)
-        
+
+       
         
         if expandedClick == false {
-            originalFrame = self.kolodaView.frame
-            originalCardFrame = self.kolodaView.viewForCardAtIndex(0)!.frame
-            UIView.animateWithDuration(0.5, animations: { () -> Void in
+            originalFrame = kolodaView.frame
+            originalCardFrame = kolodaView.viewForCardAtIndex(kolodaView.currentCardNumber)!.frame
+            UIView.animateWithDuration(0.35, animations: { () -> Void in
                 self.kolodaView.frame = CGRectMake(0, 0, self.view.frame.width, self.kolodaView.frame.height)
-                self.kolodaView.viewForCardAtIndex(0)!.frame = CGRectMake(0, 0, self.view.frame.width, self.kolodaView.frame.height)
-                
+                self.kolodaView.viewForCardAtIndex(self.kolodaView.currentCardNumber)!.frame = CGRectMake(0, 0, self.view.frame.width, self.kolodaView.frame.height)
+               self.bottomUpView!.frame = CGRectOffset(self.bottomUpView!.frame, 0, -(self.view.frame.height - self.kolodaView.frame.height))
                 }) { (finished) -> Void in
                     //finish
                     self.expandedClick = true
+                    //TODO: stop card from swiping when expanded mode
+//                    self.kolodaView.userInteractionEnabled = false
             }
         } else if expandedClick == true{
-            UIView.animateWithDuration(0.5, animations: { () -> Void in
+            UIView.animateWithDuration(0.35, animations: { () -> Void in
                 self.kolodaView.frame = self.originalFrame!
-                self.kolodaView.viewForCardAtIndex(0)!.frame = self.originalCardFrame!
+                self.kolodaView.viewForCardAtIndex(self.kolodaView.currentCardNumber)!.frame = self.originalCardFrame!
+                self.bottomUpView!.frame = CGRectOffset(self.bottomUpView!.frame, 0, self.view.frame.height - self.kolodaView.frame.height)
                 }) { (finished) -> Void in
                     self.expandedClick = false
             }
