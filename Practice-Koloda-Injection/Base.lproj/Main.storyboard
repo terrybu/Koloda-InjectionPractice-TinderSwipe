@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Sample Title-->
@@ -25,22 +24,6 @@
                                     <constraint firstAttribute="height" constant="300" id="bWS-Lm-kwU"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqm-P5-00E">
-                                <rect key="frame" x="559" y="28" width="42" height="42"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="42" id="6Ib-mn-mMc"/>
-                                    <constraint firstAttribute="height" constant="42" id="hoF-mA-BcG"/>
-                                </constraints>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" image="btn_undo">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" red="0.99215686270000003" green="0.27058823529999998" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="undoButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rn0-Y4-m38"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qx9-Qs-YOk">
                                 <rect key="frame" x="180" y="440" width="240" height="64"/>
                                 <subviews>
@@ -82,10 +65,8 @@
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="XVJ-HW-Ygh" secondAttribute="bottom" constant="100" id="Fuq-Ya-XfU"/>
                             <constraint firstItem="qx9-Qs-YOk" firstAttribute="top" secondItem="XVJ-HW-Ygh" secondAttribute="bottom" constant="20" id="Qb5-dp-lG6"/>
-                            <constraint firstItem="hqm-P5-00E" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="R9i-6w-xii"/>
                             <constraint firstItem="qx9-Qs-YOk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hca-HG-5is"/>
                             <constraint firstItem="XVJ-HW-Ygh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="50" id="hkY-UU-WXM"/>
-                            <constraint firstItem="hqm-P5-00E" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="kCs-Ow-cot"/>
                             <constraint firstItem="XVJ-HW-Ygh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="lmN-q8-c8c"/>
                             <constraint firstAttribute="trailing" secondItem="XVJ-HW-Ygh" secondAttribute="trailing" constant="50" id="xvv-t8-Wo9"/>
                         </constraints>
@@ -141,6 +122,5 @@
     <resources>
         <image name="btn_like_normal" width="32" height="32"/>
         <image name="btn_skip_normal" width="32" height="32"/>
-        <image name="btn_undo" width="21" height="21"/>
     </resources>
 </document>

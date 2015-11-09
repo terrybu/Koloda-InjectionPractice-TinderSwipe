@@ -101,8 +101,6 @@ class MainViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
 //        let modalVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ModalVC")
 //        presentViewController(modalVC, animated: true, completion: nil)
 
-       
-        
         if expandedClick == false {
             originalFrame = kolodaView.frame
             originalCardFrame = kolodaView.viewForCardAtIndex(kolodaView.currentCardNumber)!.frame
