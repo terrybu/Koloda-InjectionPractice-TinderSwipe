@@ -53,7 +53,6 @@
                                     </button>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="2LN-Pt-EeI"/>
                                     <constraint firstAttribute="height" constant="64" id="X0E-oD-Ds5"/>

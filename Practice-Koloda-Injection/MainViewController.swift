@@ -105,14 +105,14 @@ class MainViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
             originalFrame = kolodaView.frame
             originalCardFrame = kolodaView.viewForCardAtIndex(kolodaView.currentCardNumber)!.frame
             UIView.animateWithDuration(0.35, animations: { () -> Void in
-                self.kolodaView.frame = CGRectMake(0, 0, self.view.frame.width, self.kolodaView.frame.height)
-                self.kolodaView.viewForCardAtIndex(self.kolodaView.currentCardNumber)!.frame = CGRectMake(0, 0, self.view.frame.width, self.kolodaView.frame.height)
-               self.bottomUpView!.frame = CGRectOffset(self.bottomUpView!.frame, 0, -(self.view.frame.height - self.kolodaView.frame.height))
+                self.kolodaView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.width)
+                self.kolodaView.viewForCardAtIndex(self.kolodaView.currentCardNumber)!.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.width)
+               self.bottomUpView!.frame = CGRectMake(0, self.kolodaView.frame.height, self.view.frame.width, self.view.frame.height - self.kolodaView.frame.height)
                 }) { (finished) -> Void in
                     //finish
                     self.expandedClick = true
                     //TODO: stop card from swiping when expanded mode
-//                    self.kolodaView.userInteractionEnabled = false
+                    self.kolodaView.testTerryDisablePan()
             }
         } else if expandedClick == true{
             UIView.animateWithDuration(0.35, animations: { () -> Void in
@@ -145,7 +145,6 @@ class MainViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
 
     
     
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
