@@ -31,7 +31,7 @@ class MainViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
         
         bottomUpView = UIView(frame:CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height-self.kolodaView.frame.height))
         bottomUpView!.frame = CGRectOffset(bottomUpView!.frame, 0, view.frame.height)
-        bottomUpView!.backgroundColor = UIColor.lightGrayColor()
+        bottomUpView!.backgroundColor = UIColor.whiteColor()
         
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 20))
         label.text = "test test test test test"
@@ -104,7 +104,7 @@ class MainViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
         if expandedClick == false {
             originalFrame = kolodaView.frame
             originalCardFrame = kolodaView.viewForCardAtIndex(kolodaView.currentCardNumber)!.frame
-            UIView.animateWithDuration(0.35, animations: { () -> Void in
+            UIView.animateWithDuration(0.25, animations: { () -> Void in
                 self.kolodaView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.width)
                 self.kolodaView.viewForCardAtIndex(self.kolodaView.currentCardNumber)!.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.width)
                self.bottomUpView!.frame = CGRectMake(0, self.kolodaView.frame.height, self.view.frame.width, self.view.frame.height - self.kolodaView.frame.height)
@@ -115,12 +115,13 @@ class MainViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
                     self.kolodaView.testTerryDisablePan()
             }
         } else if expandedClick == true{
-            UIView.animateWithDuration(0.35, animations: { () -> Void in
+            UIView.animateWithDuration(0.25, animations: { () -> Void in
                 self.kolodaView.frame = self.originalFrame!
                 self.kolodaView.viewForCardAtIndex(self.kolodaView.currentCardNumber)!.frame = self.originalCardFrame!
                 self.bottomUpView!.frame = CGRectOffset(self.bottomUpView!.frame, 0, self.view.frame.height - self.kolodaView.frame.height)
                 }) { (finished) -> Void in
                     self.expandedClick = false
+                    self.kolodaView.reEnablePan()
             }
         }
     
