@@ -8,6 +8,7 @@
 
 import UIKit
 
+//this was just in case we wanted to pop up a modal instead of doing it a fancy way like we are doing currently in master in MainVC 
 class ModalViewController: UIViewController {
     
     @IBAction func closeButtonPress() {
