@@ -6,27 +6,26 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="2YX-Fq-Shy" customClass="CustomOverlayView" customModule="Practice_Koloda_Injection" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CustomOverlayView" customModule="Practice_Koloda_Injection" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WCV-zP-jxN">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EAs-ve-9HP">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <animations/>
                 </imageView>
             </subviews>
             <animations/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="WCV-zP-jxN" firstAttribute="top" secondItem="2YX-Fq-Shy" secondAttribute="top" id="U2O-l5-vTb"/>
-                <constraint firstAttribute="bottom" secondItem="WCV-zP-jxN" secondAttribute="bottom" id="ies-4O-vvq"/>
-                <constraint firstItem="WCV-zP-jxN" firstAttribute="leading" secondItem="2YX-Fq-Shy" secondAttribute="leading" id="skN-Bk-miF"/>
-                <constraint firstAttribute="trailing" secondItem="WCV-zP-jxN" secondAttribute="trailing" id="wTK-Fw-CRk"/>
+                <constraint firstAttribute="trailing" secondItem="EAs-ve-9HP" secondAttribute="trailing" id="I7C-9n-fg6"/>
+                <constraint firstItem="EAs-ve-9HP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="QnN-DL-doU"/>
+                <constraint firstAttribute="bottom" secondItem="EAs-ve-9HP" secondAttribute="bottom" id="cE3-Dz-p7e"/>
+                <constraint firstItem="EAs-ve-9HP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="lfj-y5-ObY"/>
             </constraints>
             <connections>
-                <outlet property="overlayImageView" destination="WCV-zP-jxN" id="Wf9-Rt-M3H"/>
+                <outlet property="overlayImageView" destination="EAs-ve-9HP" id="Pjf-3t-qgh"/>
             </connections>
-            <point key="canvasLocation" x="398" y="17"/>
         </view>
     </objects>
 </document>
