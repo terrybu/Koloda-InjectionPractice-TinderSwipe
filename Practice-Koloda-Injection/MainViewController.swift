@@ -28,6 +28,7 @@ class MainViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.navigationController?.navigationBarHidden = true
         
         kolodaView.dataSource = self
         kolodaView.delegate = self
@@ -81,6 +82,8 @@ class MainViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
     @objc
     private func locationIconButtonWasPressed() {
         print("location button press")
+        let modalVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ModalVC")
+        presentViewController(modalVC, animated: true, completion: nil)
     }
     
     //MARK: IBActions
@@ -172,11 +175,11 @@ class MainViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
     }
     
     func kolodaShouldMoveBackgroundCard(koloda: KolodaView) -> Bool {
-        return true
+        return false
     }
     
     func kolodaShouldTransparentizeNextCard(koloda: KolodaView) -> Bool {
-        return true
+        return false
     }
     
 
