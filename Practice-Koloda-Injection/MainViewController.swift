@@ -23,6 +23,7 @@ class MainViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
     var originalFrame: CGRect?
     var originalCardFrame: CGRect?
     var bottomUpView: UIView?
+    var closeXButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,10 +41,16 @@ class MainViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
         textView.font = UIFont.systemFontOfSize(15.0)
         let button = UIButton(type: UIButtonType.Custom)
         button.frame = CGRect(x: 0, y: 100, width: 100, height: 30)
-        button.setTitle("BUTTON TEST", forState: UIControlState.Normal)
-        
         bottomUpView?.addSubview(textView)
-        bottomUpView?.addSubview(button)
+        
+        let closeXButtonImage = UIImage(named: "close")
+        closeXButton = UIButton(type: UIButtonType.System)
+        closeXButton.setBackgroundImage(closeXButtonImage, forState: UIControlState.Normal)
+        closeXButton.frame.origin = CGPoint(x: 10, y: 20)
+        closeXButton.frame.size = CGSize(width: 30, height: 30)
+        kolodaView.addSubview(closeXButton)
+        closeXButton.alpha = 0.0
+        closeXButton.addTarget(self, action: "collapseExpandedCardView", forControlEvents: UIControlEvents.TouchUpInside)
         
         let locationIconImage = UIImage(named:"locationIcon")
         let locationButton = UIButton(type: UIButtonType.System)
@@ -124,29 +131,39 @@ class MainViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
     
     func kolodaDidSelectCardAtIndex(koloda: KolodaView, index: UInt) {
         print("card tapped at index \(index)")
-//        
-//        let modalVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ModalVC")
-//        presentViewController(modalVC, animated: true, completion: nil)
+        //
+        //        let modalVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ModalVC")
+        //        presentViewController(modalVC, animated: true, completion: nil)
         if draggableCardIsExpanded == false {
             originalFrame = kolodaView.frame
             originalCardFrame = kolodaView.viewForCardAtIndex(kolodaView.currentCardNumber)!.frame
-            UIView.animateWithDuration(0.15, animations: { () -> Void in
-                self.kolodaView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.width)
-                self.kolodaView.viewForCardAtIndex(self.kolodaView.currentCardNumber)!.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.width)
-               self.bottomUpView!.frame = CGRectMake(0, self.kolodaView.frame.height, self.view.frame.width, self.view.frame.height - self.kolodaView.frame.height)
-                }) { (finished) -> Void in
-                    self.draggableCardIsExpanded = true
-                    self.kolodaView.disablePanSwipeOnAllCardsForExpandedView()
-            }
+            self.showExpandedCardViewUponCardTap()
         } else if draggableCardIsExpanded == true{
-            UIView.animateWithDuration(0.15, animations: { () -> Void in
-                self.kolodaView.frame = self.originalFrame!
-                self.kolodaView.viewForCardAtIndex(self.kolodaView.currentCardNumber)!.frame = self.originalCardFrame!
-                self.bottomUpView!.frame = CGRectOffset(self.bottomUpView!.frame, 0, self.view.frame.height - self.kolodaView.frame.height)
-                }) { (finished) -> Void in
-                    self.draggableCardIsExpanded = false
-                    self.kolodaView.reEnablePanSwipeOnAllCards()
-            }
+            self.collapseExpandedCardView()
+        }
+    }
+    
+    private func showExpandedCardViewUponCardTap() {
+        UIView.animateWithDuration(0.15, animations: { () -> Void in
+            self.kolodaView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.width)
+            self.kolodaView.viewForCardAtIndex(self.kolodaView.currentCardNumber)!.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.width)
+            self.bottomUpView!.frame = CGRectMake(0, self.kolodaView.frame.height, self.view.frame.width, self.view.frame.height - self.kolodaView.frame.height)
+            self.closeXButton.alpha = 1.0
+            }) { (finished) -> Void in
+                self.draggableCardIsExpanded = true
+                self.kolodaView.disablePanSwipeOnAllCardsForExpandedView()
+        }
+    }
+    @objc
+    private func collapseExpandedCardView() {
+        UIView.animateWithDuration(0.15, animations: { () -> Void in
+            self.kolodaView.frame = self.originalFrame!
+            self.kolodaView.viewForCardAtIndex(self.kolodaView.currentCardNumber)!.frame = self.originalCardFrame!
+            self.bottomUpView!.frame = CGRectOffset(self.bottomUpView!.frame, 0, self.view.frame.height - self.kolodaView.frame.height)
+            self.closeXButton.alpha = 0.0
+            }) { (finished) -> Void in
+                self.draggableCardIsExpanded = false
+                self.kolodaView.reEnablePanSwipeOnAllCards()
         }
     }
     
