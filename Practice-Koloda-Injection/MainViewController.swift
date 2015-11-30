@@ -11,6 +11,8 @@ import Koloda
 import pop
 
 private var numberOfCards: UInt = 5
+private let frameAnimationSpringBounciness:CGFloat = 9
+private let frameAnimationSpringSpeed:CGFloat = 16
 
 class MainViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate  {
 
@@ -33,17 +35,18 @@ class MainViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
         bottomUpView!.frame = CGRectOffset(bottomUpView!.frame, 0, view.frame.height)
         bottomUpView!.backgroundColor = UIColor.whiteColor()
         
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 20))
-        label.text = "test test test test test"
+        let textView = UITextView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 200))
+        textView.text = "Harpo's Bar & Grill \n\n Served during lunch & dinner \n\n 4 oz lean beef burger topped with avocado, onions, tomato and cheese \n\n $9.50"
         let button = UIButton(type: UIButtonType.Custom)
         button.frame = CGRect(x: 0, y: 100, width: 100, height: 30)
         button.setTitle("BUTTON TEST", forState: UIControlState.Normal)
         
-        bottomUpView?.addSubview(label)
+        bottomUpView?.addSubview(textView)
         bottomUpView?.addSubview(button)
         
         let imageView = UIImageView(image: UIImage(named:"locationIcon"))
-        imageView.frame = CGRectMake(0, 200, 50,50)
+        imageView.frame.size = CGSize(width: 50,height: 50)
+        imageView.frame.origin = CGPoint(x: view.frame.width/2-25, y: 200)
         bottomUpView?.addSubview(imageView)
         
         view.addSubview(bottomUpView!)
@@ -104,7 +107,7 @@ class MainViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
         if expandedClick == false {
             originalFrame = kolodaView.frame
             originalCardFrame = kolodaView.viewForCardAtIndex(kolodaView.currentCardNumber)!.frame
-            UIView.animateWithDuration(0.25, animations: { () -> Void in
+            UIView.animateWithDuration(0.20, animations: { () -> Void in
                 self.kolodaView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.width)
                 self.kolodaView.viewForCardAtIndex(self.kolodaView.currentCardNumber)!.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.width)
                self.bottomUpView!.frame = CGRectMake(0, self.kolodaView.frame.height, self.view.frame.width, self.view.frame.height - self.kolodaView.frame.height)
@@ -115,7 +118,7 @@ class MainViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
                     self.kolodaView.testTerryDisablePan()
             }
         } else if expandedClick == true{
-            UIView.animateWithDuration(0.25, animations: { () -> Void in
+            UIView.animateWithDuration(0.20, animations: { () -> Void in
                 self.kolodaView.frame = self.originalFrame!
                 self.kolodaView.viewForCardAtIndex(self.kolodaView.currentCardNumber)!.frame = self.originalCardFrame!
                 self.bottomUpView!.frame = CGRectOffset(self.bottomUpView!.frame, 0, self.view.frame.height - self.kolodaView.frame.height)
@@ -140,10 +143,13 @@ class MainViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
         return true
     }
     
-    func kolodaBackgroundCardAnimation(koloda: KolodaView) -> POPPropertyAnimation? {
-        return nil
-    }
 
+    func kolodaBackgroundCardAnimation(koloda: KolodaView) -> POPPropertyAnimation? {
+        let animation = POPSpringAnimation(propertyNamed: kPOPViewFrame)
+        animation.springBounciness = frameAnimationSpringBounciness
+        animation.springSpeed = frameAnimationSpringSpeed
+        return animation
+    }
     
     
     override func didReceiveMemoryWarning() {
